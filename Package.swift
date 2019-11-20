@@ -1,4 +1,4 @@
-// swift-tools-version:5.0
+// swift-tools-version:5.1
 
 import PackageDescription
 
@@ -10,7 +10,7 @@ let package = Package(
   products: [.library(name: "Pure", targets: ["Pure"])],
   dependencies: [
     .package(url: "https://github.com/Quick/Quick.git", .upToNextMajor(from: "2.0.0")),
-    .package(url: "https://github.com/Quick/Nimble.git", .revision("fc3cd1adf6961a3541679342d64fbbfd7a9f4ca7")),
+    .package(url: "https://github.com/Quick/Nimble.git", .upToNextMajor(from: "8.0.0")),
   ],
   targets: [
     .target(name: "Pure", dependencies: []),
@@ -18,6 +18,5 @@ let package = Package(
     .target(name: "TestSupport", dependencies: ["Pure"]),
     .testTarget(name: "PureTests", dependencies: ["Pure", "TestSupport", "Quick", "Nimble"]),
     .testTarget(name: "PureStubTests", dependencies: ["PureStub", "TestSupport", "Quick", "Nimble"]),
-  ],
-  swiftLanguageVersions: [.v5]
+  ]
 )
